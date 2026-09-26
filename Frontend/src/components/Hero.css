@@ -149,7 +149,7 @@
   position: relative;
   z-index: 5;
   font-family: var(--font-code);
-  font-size: 14px;
+  font-size: 24px;
   color: rgba(0, 240, 255, 0.5);
   margin-bottom: 12px;
   letter-spacing: 1px;
@@ -162,9 +162,9 @@
   font-family: var(--font-display);
   font-size: clamp(32px, 7vw, 80px);
   font-weight: 900;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   margin: 0 0 16px;
-  line-height: 1.1;
+  line-height: 1.6;
   background: linear-gradient(135deg,
       #00f0ff 0%,
       #a855f7 25%,
@@ -294,21 +294,29 @@
   z-index: 5;
   display: flex;
   gap: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 42px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .hero__cta {
   font-family: var(--font-display);
-  font-size: 11px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: 2px;
-  padding: 12px 28px;
+  padding: 14px 32px;
   text-decoration: none;
   transition: all var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% 100%,
+    14px 100%,
+    0 calc(100% - 14px)
+  );
 }
 
 .hero__cta::before {
@@ -326,29 +334,45 @@
 
 .hero__cta--primary {
   color: var(--cyan);
-  border: 1px solid var(--cyan);
-  background: transparent;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-top-color: rgba(0, 240, 255, 0.7);
+  border-left-color: rgba(0, 240, 255, 0.5);
+  background: rgba(0, 240, 255, 0.06);
+  box-shadow: inset 3px 3px 10px rgba(0, 240, 255, 0.06);
+  filter: drop-shadow(3px 4px 1px rgba(0, 50, 60, 0.6)) drop-shadow(0 0 10px rgba(0, 240, 255, 0.1));
 }
 
 .hero__cta--primary:hover {
-  background: rgba(0, 240, 255, 0.1);
-  box-shadow: 0 0 20px var(--cyan-glow), inset 0 0 20px rgba(0, 240, 255, 0.05);
+  background: rgba(0, 240, 255, 0.12);
+  border-top-color: rgba(0, 240, 255, 1);
+  border-left-color: rgba(0, 240, 255, 0.7);
+  box-shadow: inset 4px 4px 14px rgba(0, 240, 255, 0.1);
+  filter: drop-shadow(4px 5px 1px rgba(0, 50, 60, 0.7)) drop-shadow(0 0 18px rgba(0, 240, 255, 0.2));
   color: var(--cyan);
+  transform: translateY(-2px);
 }
 
 .hero__cta--secondary {
   color: var(--cyan);
-  border: 1px solid var(--cyan);
-  background: transparent;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-top-color: rgba(0, 240, 255, 0.7);
+  border-left-color: rgba(0, 240, 255, 0.5);
+  background: rgba(0, 240, 255, 0.06);
+  box-shadow: inset 3px 3px 10px rgba(0, 240, 255, 0.06);
+  filter: drop-shadow(3px 4px 1px rgba(0, 50, 60, 0.6)) drop-shadow(0 0 10px rgba(0, 240, 255, 0.1));
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
 .hero__cta--secondary:hover {
-  background: rgba(0, 240, 255, 0.1);
-  box-shadow: 0 0 20px var(--cyan-glow), inset 0 0 20px rgba(0, 240, 255, 0.05);
+  background: rgba(0, 240, 255, 0.12);
+  border-top-color: rgba(0, 240, 255, 1);
+  border-left-color: rgba(0, 240, 255, 0.7);
+  box-shadow: inset 4px 4px 14px rgba(0, 240, 255, 0.1);
+  filter: drop-shadow(4px 5px 1px rgba(0, 50, 60, 0.7)) drop-shadow(0 0 18px rgba(0, 240, 255, 0.2));
   color: var(--cyan);
+  transform: translateY(-2px);
 }
 
 .hero__cta-icon {
@@ -357,14 +381,62 @@
 
 .hero__cta--tertiary {
   color: var(--cyan);
-  border: 1px solid var(--cyan);
-  background: transparent;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-top-color: rgba(0, 240, 255, 0.7);
+  border-left-color: rgba(0, 240, 255, 0.5);
+  background: rgba(0, 240, 255, 0.06);
+  box-shadow: inset 3px 3px 10px rgba(0, 240, 255, 0.06);
+  filter: drop-shadow(3px 4px 1px rgba(0, 50, 60, 0.6)) drop-shadow(0 0 10px rgba(0, 240, 255, 0.1));
 }
 
 .hero__cta--tertiary:hover {
-  background: rgba(0, 240, 255, 0.1);
-  box-shadow: 0 0 20px var(--cyan-glow), inset 0 0 20px rgba(0, 240, 255, 0.05);
+  background: rgba(0, 240, 255, 0.12);
+  border-top-color: rgba(0, 240, 255, 1);
+  border-left-color: rgba(0, 240, 255, 0.7);
+  box-shadow: inset 4px 4px 14px rgba(0, 240, 255, 0.1);
+  filter: drop-shadow(4px 5px 1px rgba(0, 50, 60, 0.7)) drop-shadow(0 0 18px rgba(0, 240, 255, 0.2));
   color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+/* CTA Click / Active Animation */
+.hero__cta--primary:active,
+.hero__cta--secondary:active,
+.hero__cta--tertiary:active {
+  transform: translateY(2px) scale(0.97);
+  filter: drop-shadow(1px 1px 0px rgba(0, 50, 60, 0.4)) drop-shadow(0 0 22px rgba(0, 240, 255, 0.35));
+  background: rgba(0, 240, 255, 0.18);
+  border-color: rgba(0, 240, 255, 0.9);
+  border-top-color: rgba(0, 240, 255, 0.4);
+  border-left-color: rgba(0, 240, 255, 0.3);
+  box-shadow:
+    inset 0 2px 12px rgba(0, 240, 255, 0.2),
+    inset 0 0 30px rgba(255, 0, 255, 0.08);
+  transition: all 0.08s ease-out;
+  animation: cta-click-flash 0.4s ease-out;
+}
+
+@keyframes cta-click-flash {
+  0% {
+    background: rgba(0, 240, 255, 0.3);
+    filter: drop-shadow(1px 1px 0px rgba(0, 50, 60, 0.3)) drop-shadow(0 0 35px rgba(0, 240, 255, 0.5));
+    border-color: var(--cyan);
+  }
+  30% {
+    background: rgba(255, 0, 255, 0.15);
+    filter: drop-shadow(1px 1px 0px rgba(60, 0, 60, 0.4)) drop-shadow(0 0 28px rgba(255, 0, 255, 0.35));
+    border-color: var(--magenta);
+  }
+  60% {
+    background: rgba(0, 240, 255, 0.2);
+    filter: drop-shadow(1px 1px 0px rgba(0, 50, 60, 0.4)) drop-shadow(0 0 22px rgba(0, 240, 255, 0.3));
+    border-color: var(--cyan);
+  }
+  100% {
+    background: rgba(0, 240, 255, 0.18);
+    filter: drop-shadow(1px 1px 0px rgba(0, 50, 60, 0.4)) drop-shadow(0 0 22px rgba(0, 240, 255, 0.35));
+    border-color: rgba(0, 240, 255, 0.9);
+  }
 }
 
 /* CTA line accents */
@@ -541,9 +613,29 @@
     padding: 100px 20px 40px;
   }
 
+  /* Portraits: keep on left/right sides, visible but subtle */
   .hero__portrait {
-    width: 45%;
-    opacity: 0.3;
+    width: 54%;
+    opacity: 0.7;
+  }
+
+  /* Disable center-merge animation on tablet — just keep at sides */
+  .hero__portrait--left {
+    animation: none;
+    left: 0;
+  }
+
+  .hero__portrait--left img {
+    object-position: 12% 45%;
+  }
+
+  .hero__portrait--right {
+    animation: none;
+    right: 0;
+  }
+
+  .hero__portrait--right img {
+    object-position: 12% 45%;
   }
 
   .hero__code-snippets {
@@ -568,8 +660,30 @@
 }
 
 @media (max-width: 480px) {
+
+  /* Portraits: still visible on left/right sides on small phones */
   .hero__portrait {
-    display: none;
+    width: 104%;
+    opacity: 0.65;
+    display: block;
+  }
+
+  .hero__portrait--left {
+    animation: none;
+    left: 0;
+  }
+
+  .hero__portrait--left img {
+    object-position: 82% 45%;
+  }
+
+  .hero__portrait--right {
+    animation: none;
+    right: 0;
+  }
+
+  .hero__portrait--right img {
+    object-position: 18% 45%;
   }
 
   .hero__name {
