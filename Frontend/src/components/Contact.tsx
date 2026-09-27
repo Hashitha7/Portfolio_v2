@@ -144,7 +144,7 @@ export default function Contact() {
       setLines([...newLines]);
       setInputValue('');
 
-      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'a198eb4c-0d67-4a37-ab9c-d36e56a91b66';
 
       if (accessKey) {
         try {
