@@ -11,6 +11,9 @@
   justify-content: center;
   padding: 120px 24px 60px;
   overflow: hidden;
+  overflow-x: clip;
+  box-sizing: border-box;
+  width: 100%;
   background:
     radial-gradient(ellipse 80% 60% at 50% 50%, rgba(88, 28, 135, 0.15) 0%, transparent 70%),
     radial-gradient(ellipse 60% 40% at 20% 50%, rgba(255, 107, 53, 0.08) 0%, transparent 60%),
@@ -160,11 +163,14 @@
   position: relative;
   z-index: 5;
   font-family: var(--font-display);
-  font-size: clamp(32px, 7vw, 80px);
+  font-size: clamp(28px, 7vw, 80px);
   font-weight: 900;
   letter-spacing: 2px;
   margin: 0 0 16px;
-  line-height: 1.6;
+  line-height: 1.15;
+  max-width: 100%;
+  word-break: break-word;
+  text-align: center;
   background: linear-gradient(135deg,
       #00f0ff 0%,
       #a855f7 25%,
@@ -205,10 +211,14 @@
   position: relative;
   z-index: 5;
   font-family: var(--font-code);
-  font-size: clamp(16px, 2.5vw, 22px);
+  font-size: clamp(14px, 2.5vw, 22px);
   color: var(--text-secondary);
   margin-bottom: 16px;
   min-height: 32px;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
 }
 
 .hero__role-prefix {
@@ -242,10 +252,12 @@
   position: relative;
   z-index: 5;
   font-family: var(--font-body);
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(13px, 2vw, 18px);
   color: var(--text-secondary);
   margin-bottom: 24px;
   letter-spacing: 1px;
+  text-align: center;
+  max-width: 100%;
 }
 
 .hero__tagline-highlight {
@@ -277,6 +289,10 @@
   background: rgba(0, 240, 255, 0.05);
   margin-bottom: 32px;
   letter-spacing: 0.5px;
+  max-width: 90%;
+  text-align: center;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .hero__badge-dot {
@@ -309,6 +325,11 @@
   transition: all var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
   clip-path: polygon(
     0 0,
     calc(100% - 14px) 0,
@@ -362,6 +383,7 @@
   filter: drop-shadow(3px 4px 1px rgba(0, 50, 60, 0.6)) drop-shadow(0 0 10px rgba(0, 240, 255, 0.1));
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -607,7 +629,38 @@
   opacity: 0.4;
 }
 
-/* ---- Responsive ---- */
+/* ---- RESPONSIVE — ALL SCREEN SIZES ---- */
+
+/* ── 1440px+ Extra Large Desktops ── */
+@media (min-width: 1440px) {
+  .hero-section {
+    padding: 140px 60px 80px;
+  }
+}
+
+/* ── 769px – 1100px Tablet landscape / Small Laptops ── */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .hero-section {
+    padding: 110px 24px 50px;
+  }
+
+  .hero__portrait {
+    width: 50%;
+    opacity: 0.75;
+  }
+
+  .hero__portrait--left {
+    animation: none;
+    left: 0;
+  }
+
+  .hero__portrait--right {
+    animation: none;
+    right: 0;
+  }
+}
+
+/* ── max 768px Tablet Portrait / Large Phones ── */
 @media (max-width: 768px) {
   .hero-section {
     padding: 100px 20px 40px;
@@ -642,6 +695,26 @@
     display: none;
   }
 
+  .hero__comment {
+    font-size: 20px;
+  }
+
+  .hero__name {
+    font-size: clamp(26px, 8.5vw, 48px);
+    line-height: 1.15;
+    letter-spacing: 1.5px;
+  }
+
+  .hero__role {
+    font-size: clamp(14px, 3.5vw, 18px);
+  }
+
+  .hero__badge {
+    font-size: 12px;
+    padding: 7px 18px;
+    max-width: 85%;
+  }
+
   .hero__ctas {
     flex-direction: column;
     width: 100%;
@@ -654,12 +727,89 @@
   }
 
   .hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     width: 100%;
+    font-size: 15px;
+    padding: 13px 24px;
+    letter-spacing: 1.5px;
+    box-sizing: border-box;
   }
 }
 
+/* ── max 600px Standard Phones ── */
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 90px 16px 36px;
+  }
+
+  .hero__portrait {
+    width: 70%;
+    opacity: 0.65;
+  }
+
+  .hero__portrait--left img {
+    object-position: 20% 45%;
+  }
+
+  .hero__portrait--right img {
+    object-position: 80% 45%;
+  }
+
+  .hero__comment {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .hero__name {
+    font-size: clamp(24px, 9vw, 38px);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .hero__role {
+    font-size: 15px;
+    min-height: 28px;
+    margin-bottom: 12px;
+  }
+
+  .hero__tagline {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin-bottom: 18px;
+  }
+
+  .hero__badge {
+    font-size: 11.5px;
+    padding: 6px 16px;
+    margin-bottom: 24px;
+    max-width: 90%;
+  }
+
+  .hero__ctas {
+    gap: 12px;
+    max-width: 280px;
+    margin-bottom: 32px;
+  }
+
+  .hero__cta {
+    font-size: 14px;
+    padding: 12px 22px;
+    letter-spacing: 1.2px;
+  }
+
+  .hero__socials {
+    gap: 14px;
+  }
+}
+
+/* ── max 480px Compact Phones (iPhone 13/14, Galaxy S, Pixel) ── */
 @media (max-width: 480px) {
+  .hero-section {
+    padding: 80px 14px 32px;
+  }
 
   /* Portraits: still visible on left/right sides on small phones */
   .hero__portrait {
@@ -686,8 +836,136 @@
     object-position: 18% 45%;
   }
 
+  .hero__comment {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
   .hero__name {
-    font-size: 28px;
-    letter-spacing: 2px;
+    font-size: clamp(22px, 9.5vw, 34px);
+    line-height: 1.15;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+  }
+
+  .hero__role {
+    font-size: 14px;
+    min-height: 26px;
+    margin-bottom: 10px;
+  }
+
+  .hero__tagline {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    margin-bottom: 16px;
+  }
+
+  .hero__badge {
+    font-size: 11px;
+    padding: 6px 14px;
+    gap: 6px;
+    margin-bottom: 22px;
+    max-width: 92%;
+    border-radius: 20px;
+  }
+
+  .hero__badge-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .hero__ctas {
+    gap: 10px;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .hero__cta {
+    font-size: 13.5px;
+    padding: 11px 20px;
+    letter-spacing: 1px;
+  }
+
+  .hero__cta-icon {
+    font-size: 12px;
+  }
+
+  .hero__socials {
+    gap: 12px;
+  }
+
+  .hero__social svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ── max 360px Extra-Compact (iPhone SE, Galaxy Fold) ── */
+@media (max-width: 360px) {
+  .hero-section {
+    padding: 70px 12px 28px;
+  }
+
+  .hero__comment {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+
+  .hero__name {
+    font-size: clamp(20px, 10vw, 28px);
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+  }
+
+  .hero__role {
+    font-size: 13px;
+    min-height: 24px;
+  }
+
+  .hero__tagline {
+    font-size: 12.5px;
+    margin-bottom: 14px;
+  }
+
+  .hero__badge {
+    font-size: 10.5px;
+    padding: 5px 12px;
+    margin-bottom: 18px;
+    letter-spacing: 0.3px;
+    max-width: 95%;
+  }
+
+  .hero__ctas {
+    gap: 9px;
+    margin-bottom: 24px;
+  }
+
+  .hero__cta {
+    font-size: 12.5px;
+    padding: 10px 16px;
+    letter-spacing: 0.8px;
+  }
+
+  .hero__socials {
+    gap: 10px;
+  }
+
+  .hero__social svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ── Touch: no hover state for CTA transform ── */
+@media (hover: none) and (pointer: coarse) {
+  .hero__cta--primary:hover,
+  .hero__cta--secondary:hover,
+  .hero__cta--tertiary:hover {
+    transform: none;
+  }
+
+  .hero__social:hover {
+    transform: none;
   }
 }

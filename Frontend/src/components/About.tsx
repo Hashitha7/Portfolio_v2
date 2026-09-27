@@ -258,9 +258,15 @@ export default function About() {
             <span className="about__section-heading-dot"></span>
           </div>
           <div className="about__timeline">
-            <div className="about__timeline-line"></div>
             {timeline.map((item, i) => (
-              <div className="about__timeline-item" key={i}>
+              <div
+                className="about__timeline-item"
+                key={i}
+                style={{
+                  '--item-dot': item.dotColor,
+                  '--next-dot': timeline[i + 1]?.dotColor || item.dotColor,
+                } as React.CSSProperties}
+              >
                 <div className="about__timeline-dot-wrapper">
                   <span className="about__timeline-dot" style={{ background: item.dotColor, boxShadow: `0 0 12px ${item.dotColor}, 0 0 28px ${item.dotColor}` }}></span>
                   <span className="about__timeline-dot-ring" style={{ borderColor: item.dotColor }}></span>
@@ -297,9 +303,15 @@ export default function About() {
             <span className="about__section-heading-dot" style={{ background: 'var(--magenta)', boxShadow: '0 0 8px var(--magenta)' }}></span>
           </div>
           <div className="about__timeline">
-            <div className="about__timeline-line"></div>
             {education.map((item, i) => (
-              <div className="about__timeline-item" key={i}>
+              <div
+                className="about__timeline-item"
+                key={i}
+                style={{
+                  '--item-dot': item.dotColor,
+                  '--next-dot': education[i + 1]?.dotColor || item.dotColor,
+                } as React.CSSProperties}
+              >
                 <div className="about__timeline-dot-wrapper">
                   <span className="about__timeline-dot" style={{ background: item.dotColor, boxShadow: `0 0 12px ${item.dotColor}, 0 0 28px ${item.dotColor}` }}></span>
                   <span className="about__timeline-dot-ring" style={{ borderColor: item.dotColor }}></span>

@@ -28,91 +28,86 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Tenzor LABS Platform',
+    title: 'Tenzor LABS ',
     description:
       'Official web platform for Tenzor LABS startup, showcasing technology solutions, AI workflows, software development, and client engineering services.',
     image: projectTenzor,
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'UI/UX'],
+    tags: ['Next.js', 'TypeScript', 'Three.js ', 'Framer Motion', 'Tailwind CSS', 'Vite', 'UI/UX'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/TENZOR-LABS',
     liveLink: 'https://tenzor-labs.vercel.app',
   },
   {
-    title: 'TestNova AI QA Platform',
-    description:
-      'Next-generation AI-powered quality assurance and test script generator that creates automated test suites and analyzes defects from Jira requirements.',
-    image: projectTestNova,
-    tags: ['React', 'Node.js', 'AI / LLM', 'Automation', 'TypeScript'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/AI-QA-Test-Generation-Platform',
-    hideLive: true,
-  },
-  {
-    title: 'Oracle Medical Channeling System',
-    description:
-      'Comprehensive healthcare appointment booking and doctor channeling management platform with real-time patient analytics and scheduling.',
-    image: projectOracleMedical,
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/Medical-Channeling-System',
-    hideLive: true,
-  },
-  {
-    title: 'The Gallery Cafe Management',
-    description:
-      'Full-scale restaurant management & POS solution with live table reservation, kitchen order routing, real-time revenue analytics, and staff tracking.',
-    image: projectGalleryCafe,
-    tags: ['React', 'TypeScript', 'Node.js', 'POS System', 'MongoDB'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/Restaurant',
-    hideLive: true,
-  },
-  {
-    title: 'Dog Nutrition Mobile App',
-    description:
-      'Modern, health-focused pet nutrition and meal planning mobile app with breed-specific diet guides, caloric tracking, and veterinarian reminders.',
-    image: projectDogNutrition,
-    tags: ['React Native', 'Figma', 'UI/UX', 'Mobile App', 'TypeScript'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/Dog-Nurition-App',
-    hideLive: true,
-  },
-  {
-    title: 'Stock Management System',
-    description:
-      'Enterprise inventory control and POS billing system featuring real-time stock monitoring, procurement order workflows, and role-based access.',
-    image: projectStockMgmt,
-    tags: ['React', 'Node.js', 'Express', 'MySQL', 'Analytics'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/Stock-Management-System',
-    hideLive: true,
-  },
-  {
-    title: 'SuperMart POS & Inventory',
-    description:
-      'High-speed Point-of-Sale software for retail supermarkets featuring transaction logging, barcode scanning support, and sales performance charts.',
-    image: projectSuperMart,
-    tags: ['React', 'Node.js', 'REST API', 'POS', 'Tailwind CSS'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/pos-system-fullstack-angular',
-    hideLive: true,
-  },
-  {
     title: 'Modernistic LMS & AI Analyst',
     description:
-      'Intelligent Learning Management System equipped with an AI Answer Analyst to automatically evaluate student responses and generate learning insights.',
+      'Modernistic LMS is a comprehensive educational platform designed to streamline teaching, learning, and administration. It integrates an innovative Science AI Answer Analyst System to automatically grade and provide feedback on student submissions.',
     image: projectModernisticLMS,
-    tags: ['React', 'Python', 'AI / ML', 'EdTech', 'Node.js'],
+    tags: ['React', 'Radix UI / Shadcn', 'Python', 'Flask', 'AI / ML', 'NLP', 'Spring Boot', 'Java', 'Spring Security (JWT, BCrypt)', 'Maven', 'CSS', 'SMS Gateway'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/Final-project-LMS-SCU-',
     liveLink: 'https://final-project-lms-scu.vercel.app',
   },
   {
+    title: 'TestNova AI QA Platform',
+    description:
+      'TestNova is an enterprise-grade, AI-driven Quality Assurance platform designed to revolutionize how engineering teams test software. By deeply integrating Google s Gemini LLM, TestNova automates everything from requirement analysis and test case generation to execution tracking and intelligent defect root-cause analysis.',
+    image: projectTestNova,
+    tags: ['Next.js', 'AI / LLM', 'Automation', 'Custom CSS Glassmorphism Engine + Framer Motion (Animations)', 'FastAPI (Python 3.x)', 'TypeScript', 'SQLAlchemy', 'SQLite ', 'Google Gemini AI API', 'Lucide React'],
+    status: 'Development',
+    codeLink: 'https://github.com/Hashitha7/AI-QA-Test-Generation-Platform',
+    hideLive: true,
+  },
+
+  {
+    title: 'SuperMart POS (Modern Real-World POS System)',
+    description:
+      'A full-stack Point of Sale (POS) system designed to manage sales, payments, products, inventory, and receipts efficiently.It also provides real-time analytics and reporting to help businesses monitor transactions, stock levels, and overall performance.',
+    image: projectSuperMart,
+    tags: ['Angular 22', 'Angular Material', 'Custom Vanilla CSS (Dark Corporate Theme)', 'RxJS & Angular Signals', 'Node.js v24', 'Express.js', 'SQLite3', 'JSON Web Tokens (JWT) & bcrypt'],
+    status: 'Development',
+    codeLink: 'https://github.com/Hashitha7/pos-system-fullstack-angular',
+    hideLive: true,
+  },
+
+  {
+    title: 'Stock Management System',
+    description:
+      'Enterprise inventory control and POS billing system featuring real-time stock monitoring, procurement order workflows, and role-based access.',
+    image: projectStockMgmt,
+    tags: ['React', 'Vite', 'React Router DOM', 'Tailwind CSS', 'Node.js', 'Express', 'MySQL', 'Google Gemini', 'Ollama ', ' OpenAI-Compatible APIs'],
+    status: 'Development',
+    codeLink: 'https://github.com/Hashitha7/Stock-Management-System',
+    hideLive: true,
+  },
+
+  {
+    title: 'Banana Nexus Interactive Game',
+    description:
+      'A full-stack web-based number guessing game where players solve image-based banana puzzles to earn points and climb the leaderboard!',
+    image: projectBananaNexus,
+    tags: ['React Router DOM', 'React', 'Bootstrap + React-Bootstrap', 'Animate.css', 'Java', 'Spring Boot', 'Spring Data JPA / Hibernate', 'MySQL', 'Maven', ' Lombok'],
+    status: 'Development',
+    codeLink: 'https://github.com/Hashitha7/banana-nexus-game',
+    hideLive: true,
+  },
+
+  {
+    title: 'Tharusha Dilshan Photography',
+    description:
+      'A bespoke, ultra-luxury portfolio and booking web application engineered for Tharusha Dilshan Photography. Designed with cinematic aesthetics, gold-hued glassmorphism, fluid interactive micro-animations, and high-performance client experience.',
+    image: projectPhotography,
+    tags: ['React', 'Tailwind CSS', 'UI/UX', 'Next.js', 'TypeScript', 'Pure Vanilla CSS with Design Tokens & Glassmorphism'],
+    status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/Photography_Site',
+    liveLink: 'https://tharushadilshan.vercel.app',
+  },
+
+  {
     title: 'NodeX Blockchain Explorer',
     description:
-      'Real-time P2P cryptocurrency network explorer displaying connected nodes, mempool transaction status, and cryptographic block verification.',
+      'A distributed multi-node blockchain system built with Go, featuring secure Ed25519 transactions, gossip-based communication, chain synchronization, and fork resolution.It provides a resilient peer-to-peer network with concurrency safety, data persistence, and automated consensus mechanisms.',
     image: projectNodeX,
-    tags: ['React', 'TypeScript', 'WebSockets', 'Crypto / P2P', 'Node.js'],
+    tags: ['Go', 'SHA-256 (Hashing)', 'Ed25519 (Signatures)', 'HTTP	(Networking)', 'Json (wire format)'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/go-multinode-blockchain',
   },
@@ -143,26 +138,42 @@ const projects: Project[] = [
     status: 'Production',
     liveLink: 'https://donora-t00206.onrender.com/',
   },
+
   {
-    title: 'Tharusha Dilshan Photography',
+    title: 'Oracle Medical Channeling System',
     description:
-      'Minimalist, high-end photography showcase and client booking platform designed for creative visual artists with gallery showcases.',
-    image: projectPhotography,
-    tags: ['React', 'Tailwind CSS', 'UI/UX', 'Photography', 'TypeScript'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/Photography_Site',
-    liveLink: 'https://tharushadilshan.vercel.app',
-  },
-  {
-    title: 'Banana Nexus Interactive Game',
-    description:
-      'Lush, illustrated jungle adventure interactive web gaming experience featuring custom character art, authentication, and responsive controls.',
-    image: projectBananaNexus,
-    tags: ['HTML5 Canvas', 'React', 'JavaScript', 'Game Dev', 'CSS3'],
-    status: 'Production',
-    codeLink: 'https://github.com/Hashitha7/banana-nexus-game',
+      'Comprehensive healthcare appointment booking and doctor channeling management platform with real-time patient analytics and scheduling.',
+    image: projectOracleMedical,
+    tags: ['HTML', 'CSS', 'PHP', 'Scss', 'Boostrap', 'MySQL', 'REST API'],
+    status: 'Development',
+    codeLink: 'https://github.com/Hashitha7/Medical-Channeling-System',
     hideLive: true,
   },
+  {
+    title: 'The Gallery Cafe ',
+    description:
+      'Full-scale restaurant management & POS solution with live table reservation, kitchen order routing, real-time revenue analytics, and staff tracking.',
+    image: projectGalleryCafe,
+    tags: ['HTML', 'CSS', 'PHP', 'MySQL', 'REST API'],
+    status: 'Development',
+    codeLink: 'https://github.com/Hashitha7/Restaurant',
+    hideLive: true,
+  },
+  {
+    title: 'Dog Nutrition Mobile App',
+    description:
+      'Modern, health-focused pet nutrition and meal planning mobile app with breed-specific diet guides, caloric tracking, and veterinarian reminders.',
+    image: projectDogNutrition,
+    tags: ['React Native', 'Figma', 'UI/UX', 'Mobile App', 'TypeScript'],
+    status: 'Development',
+    codeLink: 'https://github.com/Hashitha7/Dog-Nurition-App',
+    hideLive: true,
+  },
+
+
+
+
+
 ];
 
 /* ── 3D Tilt Card ── */
