@@ -92,7 +92,7 @@ const education: EducationItem[] = [
 
 const stats = [
   { value: 11, suffix: '+', label: 'Months Experience' },
-  { value: 10, suffix: '+', label: 'Projects Built' },
+  { value: 14, suffix: '+', label: 'Projects Built' },
   { value: 6, suffix: '+', label: 'Tech Stacks' },
 ];
 

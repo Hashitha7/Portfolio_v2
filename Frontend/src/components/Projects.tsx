@@ -1,10 +1,18 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
-import projectMail from '../assets/project_mail.png';
-import projectWayback from '../assets/project_wayback.png';
-import projectDomain from '../assets/project_domain.png';
-import projectDiluBeats from '../assets/project_dilubeats.png';
-import projectCQGroup from '../assets/project_cqgroup.png';
-import projectNeuriox from '../assets/project_neuriox.png';
+import projectTenzor from '../assets/projects/Tenzor labs.png';
+import projectTestNova from '../assets/projects/AI QA & Test Generation Platform.png';
+import projectOracleMedical from '../assets/projects/medical channeling system.png';
+import projectGalleryCafe from '../assets/projects/The Gallery Cafe.png';
+import projectDogNutrition from '../assets/projects/Dog Nutrition Mobile App.png';
+import projectStockMgmt from '../assets/projects/stock management system.png';
+import projectSuperMart from '../assets/projects/SuperMart.png';
+import projectModernisticLMS from '../assets/projects/modernistic lms.png';
+import projectNodeX from '../assets/projects/NodeX.png';
+import projectLuckyLux from '../assets/projects/luckylux.png';
+import projectLextar from '../assets/projects/Lextar.png';
+import projectDonora from '../assets/projects/donora.png';
+import projectPhotography from '../assets/projects/photography portfolio.png';
+import projectBananaNexus from '../assets/projects/banananexusgame.png';
 import './Projects.css';
 
 interface Project {
@@ -18,51 +26,115 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Mail Management Service',
+    title: 'Tenzor LABS Platform',
     description:
-      'Official domain-based mailbox management system with mailbox request handling and role-based access control.',
-    image: projectMail,
-    tags: ['React', 'Node.js', 'MongoDB', 'RestAPI', '+1'],
+      'Official web platform for Tenzor LABS startup, showcasing technology solutions, AI workflows, software development, and client engineering services.',
+    image: projectTenzor,
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'UI/UX'],
     status: 'Production',
   },
   {
-    title: 'Wayback Downloading Machine',
+    title: 'TestNova AI QA Platform',
     description:
-      'A tool to capture expired domains and download stable archived versions from the Wayback Machine.',
-    image: projectWayback,
-    tags: ['React', 'Node.js', 'RestAPI', 'Web Sockets'],
+      'Next-generation AI-powered quality assurance and test script generator that creates automated test suites and analyzes defects from Jira requirements.',
+    image: projectTestNova,
+    tags: ['React', 'Node.js', 'AI / LLM', 'Automation', 'TypeScript'],
     status: 'Production',
   },
   {
-    title: 'Domain Rank Checker',
+    title: 'Oracle Medical Channeling System',
     description:
-      'A real-time domain rank checker, tracks Google Top 10 search results and analysise with system db to provide insights on domain performance and..',
-    image: projectDomain,
-    tags: ['React', 'Node.js', 'REST API', 'Web Sockets'],
+      'Comprehensive healthcare appointment booking and doctor channeling management platform with real-time patient analytics and scheduling.',
+    image: projectOracleMedical,
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
     status: 'Production',
   },
   {
-    title: 'DILU Beats',
+    title: 'The Gallery Cafe Management',
     description:
-      'Professional portfolio website for Sri Lankan music producer featuring interactive design and seamless user experience.',
-    image: projectDiluBeats,
-    tags: ['React', 'Vite', 'Tailwind CSS', 'JavaScript'],
+      'Full-scale restaurant management & POS solution with live table reservation, kitchen order routing, real-time revenue analytics, and staff tracking.',
+    image: projectGalleryCafe,
+    tags: ['React', 'TypeScript', 'Node.js', 'POS System', 'MongoDB'],
     status: 'Production',
   },
   {
-    title: 'CQ Group Landing Page',
+    title: 'Dog Nutrition Mobile App',
     description:
-      'Modern, responsive landing page for UK-based IT solutions company with professional design and animations.',
-    image: projectCQGroup,
-    tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript'],
+      'Modern, health-focused pet nutrition and meal planning mobile app with breed-specific diet guides, caloric tracking, and veterinarian reminders.',
+    image: projectDogNutrition,
+    tags: ['React Native', 'Figma', 'UI/UX', 'Mobile App', 'TypeScript'],
     status: 'Production',
   },
   {
-    title: 'Neuriox IT Landing Page',
+    title: 'Stock Management System',
     description:
-      'Elegant landing page for freelancing web development company showcasing services and portfolio.',
-    image: projectNeuriox,
-    tags: ['React', 'Vite', 'Tailwind CSS', 'TypeScript'],
+      'Enterprise inventory control and POS billing system featuring real-time stock monitoring, procurement order workflows, and role-based access.',
+    image: projectStockMgmt,
+    tags: ['React', 'Node.js', 'Express', 'MySQL', 'Analytics'],
+    status: 'Production',
+  },
+  {
+    title: 'SuperMart POS & Inventory',
+    description:
+      'High-speed Point-of-Sale software for retail supermarkets featuring transaction logging, barcode scanning support, and sales performance charts.',
+    image: projectSuperMart,
+    tags: ['React', 'Node.js', 'REST API', 'POS', 'Tailwind CSS'],
+    status: 'Production',
+  },
+  {
+    title: 'Modernistic LMS & AI Analyst',
+    description:
+      'Intelligent Learning Management System equipped with an AI Answer Analyst to automatically evaluate student responses and generate learning insights.',
+    image: projectModernisticLMS,
+    tags: ['React', 'Python', 'AI / ML', 'EdTech', 'Node.js'],
+    status: 'Production',
+  },
+  {
+    title: 'NodeX Blockchain Explorer',
+    description:
+      'Real-time P2P cryptocurrency network explorer displaying connected nodes, mempool transaction status, and cryptographic block verification.',
+    image: projectNodeX,
+    tags: ['React', 'TypeScript', 'WebSockets', 'Crypto / P2P', 'Node.js'],
+    status: 'Production',
+  },
+  {
+    title: 'LuckyLux Web3 Platform',
+    description:
+      'Next-generation Web3 gaming and casino landing platform featuring interactive 3D assets, tokenomics integration, and decentralized design.',
+    image: projectLuckyLux,
+    tags: ['React', 'Vite', 'Web3', 'Tailwind CSS', 'Figma'],
+    status: 'Production',
+  },
+  {
+    title: 'Lextar Tokenomics Platform',
+    description:
+      'Vibrant decentralized finance web platform featuring character brand identity, DEX tools integration, roadmap tracking, and token utility.',
+    image: projectLextar,
+    tags: ['React', 'Tailwind CSS', 'Web3', 'JavaScript', 'DEX'],
+    status: 'Production',
+  },
+  {
+    title: 'Donora Digital Platform',
+    description:
+      'Dynamic anime-themed creative web application featuring custom branding, responsive navigation, service offerings, and community engagement.',
+    image: projectDonora,
+    tags: ['React', 'Vite', 'CSS3', 'Responsive Design', 'JavaScript'],
+    status: 'Production',
+  },
+  {
+    title: 'Tharusha Dilshan Photography',
+    description:
+      'Minimalist, high-end photography showcase and client booking platform designed for creative visual artists with gallery showcases.',
+    image: projectPhotography,
+    tags: ['React', 'Tailwind CSS', 'UI/UX', 'Photography', 'TypeScript'],
+    status: 'Production',
+  },
+  {
+    title: 'Banana Nexus Interactive Game',
+    description:
+      'Lush, illustrated jungle adventure interactive web gaming experience featuring custom character art, authentication, and responsive controls.',
+    image: projectBananaNexus,
+    tags: ['HTML5 Canvas', 'React', 'JavaScript', 'Game Dev', 'CSS3'],
     status: 'Production',
   },
 ];
@@ -106,7 +178,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       id={`project-card-${index}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ animationDelay: `${index * 0.08}s` }}
     >
       {/* Glow that follows cursor */}
       <div className="projects__card-glow" ref={glowRef}></div>
@@ -165,6 +237,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -174,6 +247,8 @@ export default function Projects() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 6);
 
   return (
     <section
@@ -212,19 +287,25 @@ export default function Projects() {
 
       {/* ── Project Grid ── */}
       <div className="projects__grid">
-        {projects.map((project, i) => (
+        {visibleProjects.map((project, i) => (
           <ProjectCard project={project} index={i} key={i} />
         ))}
       </div>
 
-      {/* ── See More Button ── */}
+      {/* ── See More / Show Less Toggle Button ── */}
       <div className="projects__more">
-        <a href="#" className="projects__more-btn" id="see-more-projects">
+        <button
+          type="button"
+          className="projects__more-btn"
+          id="see-more-projects"
+          onClick={() => setShowAll(!showAll)}
+        >
           <span className="projects__more-btn-bg"></span>
           <span className="projects__more-btn-text">
-            SEE MORE PROJECTS <span className="projects__more-arrow">→</span>
+            {showAll ? 'SHOW LESS PROJECTS' : `SEE MORE PROJECTS (${projects.length - 6} MORE)`}
+            <span className="projects__more-arrow">{showAll ? ' ↑' : ' →'}</span>
           </span>
-        </a>
+        </button>
         <div className="projects__more-line"></div>
       </div>
     </section>
