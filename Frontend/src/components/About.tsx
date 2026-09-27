@@ -71,14 +71,14 @@ const education: EducationItem[] = [
     period: 'Jan 2025 - July 2026',
     title: 'BSc (Hons) in Information Technology',
     org: 'Sri Lanka Institute of Information Technology (SLIIT CITY UNI)',
-    detail: 'Specializing in Software Engineering',
+    detail: 'Second Class Upper Division',
     dotColor: 'var(--cyan)',
   },
   {
     period: '2023 - 2024',
     title: 'Cardiff Metropolitan University / ICBT',
-    org: 'Higher National Diploma in Information Technology',
-    detail: 'Successfully completed HND in IT with distinction',
+    org: 'Higher Diploma in Computing and Software Engineering',
+    detail: 'Successfully completed HND with Merit',
     dotColor: 'var(--neon-green)',
   },
   {
