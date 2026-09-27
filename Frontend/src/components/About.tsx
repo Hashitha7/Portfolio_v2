@@ -36,7 +36,7 @@ const traits: Trait[] = [
 
 const timeline: TimelineItem[] = [
   {
-    period: '2024 - Present',
+    period: '2026 - Present',
     title: 'Founder & Owner',
     org: 'Tenzor LABS — Technology & Digital Solutions',
     badge: 'STARTUP FOUNDER',
@@ -55,12 +55,12 @@ const timeline: TimelineItem[] = [
     title: 'Intern AI Solutions Architect',
     org: '',
     description:
-      'Designed and developed scalable websites and a web-based application with a strong focus on functionality, performance, and user experience.',
+      'I demonstrated development and maintenance of multiple web sites & one web-based application, contributing across both front end and back-end components. My primary responsibilities included:,',
     bullets: [
-      'Built and maintained both front-end and back-end components using React.js, Next.js, Node.js, JavaScript, TypeScript, and MongoDB.',
-      'Collaborated with cross-functional development teams to implement new features and ensure successful project delivery.',
-      'Performed code reviews, testing, and debugging to improve application stability, reliability, and overall code quality.',
-      'Integrated n8n workflow automation into web applications and utilized Docker for containerization and deployment support.',
+      'Designing and developing scalable multiple web sites & one web-based application with a focus on functionality and performance.',
+      'Writing clean, maintainable and efficient code using technologies such as JavaScript, TypeScript, Node.js,React.js, Next.js, and MongoDB. Collaborating with other developers to support feature implementation and project delivery',
+      'Conducting code reviews, testing and debugging to ensure application stability and reliability.',
+      'Utilized the n8n workflow automation tool in web applications and worked with Docker for containerization',
     ],
     dotColor: 'var(--magenta)',
   },
@@ -69,7 +69,7 @@ const timeline: TimelineItem[] = [
 const education: EducationItem[] = [
   {
     period: 'Jan 2025 - July 2026',
-    title: 'BSc (Hons) in Information Technology',
+    title: 'BSc (Hons) in Software Engineering',
     org: 'Sri Lanka Institute of Information Technology (SLIIT CITY UNI)',
     detail: 'Second Class Upper Division',
     dotColor: 'var(--cyan)',
@@ -91,9 +91,9 @@ const education: EducationItem[] = [
 ];
 
 const stats = [
-  { value: 11, suffix: '+', label: 'Months Experience' },
+  { value: 12, suffix: '+', label: 'Months Experience' },
   { value: 14, suffix: '+', label: 'Projects Built' },
-  { value: 6, suffix: '+', label: 'Tech Stacks' },
+  { value: 11, suffix: '+', label: 'Tech Stacks' },
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
@@ -204,7 +204,7 @@ export default function About() {
             <span className="about__avatar-role">Founder @ Tenzor LABS • Full Stack &amp; AI Engineer</span>
             <div className="about__avatar-status">
               <span className="about__status-dot"></span>
-              <span>Founder &amp; Owner @ Tenzor LABS | Undergraduate @ SLIIT</span>
+              <span>Founder &amp; Owner @ Tenzor LABS | Fresh Graduate @ SLIIT</span>
             </div>
           </div>
 
@@ -243,11 +243,9 @@ export default function About() {
             <p className="about__bio-text">
               <span className="about__bio-highlight about__bio-highlight--cyan">Founder &amp; Owner of Tenzor LABS</span> and{' '}
               <span className="about__bio-highlight about__bio-highlight--magenta">Passionate Full Stack Developer</span> with a keen eye for{' '}
-              <span className="about__bio-highlight about__bio-highlight--cyan">innovative solutions</span>. Leading Tenzor LABS to build scalable,
-              AI-driven digital products and robust software solutions while pursuing my Software Engineering degree at SLIIT. I specialize in turning complex ideas into{' '}
+              <span className="about__bio-highlight about__bio-highlight--cyan">innovative solutions</span>.I lead Tenzor LABS in building scalable, AI-driven digital products and robust software solutions, while pursuing my Software Engineering degree at SLIIT City University. I specialize in turning complex ideas into{' '}
               <span className="about__bio-highlight about__bio-highlight--green">reliable, high-impact working solutions</span> that bridge the gap between
-              functionality, scalability, and modern aesthetics. Strong problem-solving skills, excellent communication in Sinhala &amp; English, and a passion for
-              learning emerging technologies.
+              functionality, scalability, and modern aesthetics. Strong problem-solving skills,  &amp; fluent communication in Sinhala and English, and hands-on experience across the MERN stack, AI integration, and cloud deployment, I'm driven to build technology that makes a real difference.
             </p>
           </div>
 
