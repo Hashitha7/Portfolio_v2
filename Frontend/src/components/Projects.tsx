@@ -23,6 +23,7 @@ interface Project {
   status: 'Production' | 'Development' | 'Beta';
   codeLink?: string;
   liveLink?: string;
+  hideLive?: boolean;
 }
 
 const projects: Project[] = [
@@ -44,6 +45,7 @@ const projects: Project[] = [
     tags: ['React', 'Node.js', 'AI / LLM', 'Automation', 'TypeScript'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/AI-QA-Test-Generation-Platform',
+    hideLive: true,
   },
   {
     title: 'Oracle Medical Channeling System',
@@ -53,6 +55,7 @@ const projects: Project[] = [
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/Medical-Channeling-System',
+    hideLive: true,
   },
   {
     title: 'The Gallery Cafe Management',
@@ -62,6 +65,7 @@ const projects: Project[] = [
     tags: ['React', 'TypeScript', 'Node.js', 'POS System', 'MongoDB'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/Restaurant',
+    hideLive: true,
   },
   {
     title: 'Dog Nutrition Mobile App',
@@ -71,6 +75,7 @@ const projects: Project[] = [
     tags: ['React Native', 'Figma', 'UI/UX', 'Mobile App', 'TypeScript'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/Dog-Nurition-App',
+    hideLive: true,
   },
   {
     title: 'Stock Management System',
@@ -80,6 +85,7 @@ const projects: Project[] = [
     tags: ['React', 'Node.js', 'Express', 'MySQL', 'Analytics'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/Stock-Management-System',
+    hideLive: true,
   },
   {
     title: 'SuperMart POS & Inventory',
@@ -89,6 +95,7 @@ const projects: Project[] = [
     tags: ['React', 'Node.js', 'REST API', 'POS', 'Tailwind CSS'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/pos-system-fullstack-angular',
+    hideLive: true,
   },
   {
     title: 'Modernistic LMS & AI Analyst',
@@ -154,6 +161,7 @@ const projects: Project[] = [
     tags: ['HTML5 Canvas', 'React', 'JavaScript', 'Game Dev', 'CSS3'],
     status: 'Production',
     codeLink: 'https://github.com/Hashitha7/banana-nexus-game',
+    hideLive: true,
   },
 ];
 
@@ -246,34 +254,36 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               <span>Code</span>
             </a>
 
-            <a
-              href={project.liveLink || '#'}
-              target={project.liveLink && project.liveLink !== '#' ? '_blank' : undefined}
-              rel={project.liveLink && project.liveLink !== '#' ? 'noopener noreferrer' : undefined}
-              className="projects__btn-action projects__btn-action--live"
-              onClick={(e) => {
-                e.stopPropagation();
-                if (!project.liveLink || project.liveLink === '#') {
-                  e.preventDefault();
-                }
-              }}
-              aria-label={`View live demo for ${project.title}`}
-            >
-              <svg
-                className="projects__btn-action-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            {!project.hideLive && (
+              <a
+                href={project.liveLink || '#'}
+                target={project.liveLink && project.liveLink !== '#' ? '_blank' : undefined}
+                rel={project.liveLink && project.liveLink !== '#' ? 'noopener noreferrer' : undefined}
+                className="projects__btn-action projects__btn-action--live"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (!project.liveLink || project.liveLink === '#') {
+                    e.preventDefault();
+                  }
+                }}
+                aria-label={`View live demo for ${project.title}`}
               >
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
-              <span>Live</span>
-            </a>
+                <svg
+                  className="projects__btn-action-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+                <span>Live</span>
+              </a>
+            )}
           </div>
         </div>
       </div>
