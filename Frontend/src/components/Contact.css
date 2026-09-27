@@ -546,18 +546,12 @@
   font-family: var(--font-code);
   font-size: 13.5px;
   color: #ffffff;
-  caret-color: transparent;
+  caret-color: var(--cyan);
   letter-spacing: 0.4px;
 }
 
 .contact__cursor {
-  width: 9px;
-  height: 19px;
-  background: var(--cyan);
-  display: inline-block;
-  animation: cursor-blink 0.8s step-end infinite;
-  box-shadow: 0 0 10px var(--cyan-glow);
-  flex-shrink: 0;
+  display: none;
 }
 
 @keyframes cursor-blink {

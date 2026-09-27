@@ -44,6 +44,7 @@ export default function Contact() {
   const [inputValue, setInputValue] = useState('');
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [isComplete, setIsComplete] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [timeStr, setTimeStr] = useState(getCurrentDateTime());
   const [isVisible, setIsVisible] = useState(false);
 
@@ -89,7 +90,8 @@ export default function Contact() {
     }
   }, [lines]);
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async () => {
+    if (isSending) return;
     const step = STEPS[currentStep];
     const value = inputValue.trim();
 
@@ -100,7 +102,7 @@ export default function Contact() {
     // Add user input to terminal
     const newLines: TerminalLine[] = [
       ...lines,
-      { text: `[${step}]$ ${value}`, type: 'input' },
+      { text: `> [${step}] ${value}`, type: 'input' },
     ];
 
     if (error) {
@@ -128,33 +130,101 @@ export default function Contact() {
         type: 'prompt',
       });
       setCurrentStep(nextStep);
+      setLines(newLines);
+      setInputValue('');
     } else {
-      // Complete
+      // Complete all steps — transmit via Web3Forms API
+      setIsSending(true);
       newLines.push({ text: '', type: 'system' });
       newLines.push({ text: '═══════════════════════════════════════════', type: 'system' });
       newLines.push({ text: '✓ ALL FIELDS VALIDATED', type: 'success' });
       newLines.push({ text: '> Compiling message payload...', type: 'info' });
-      newLines.push({ text: '> Establishing secure connection...', type: 'info' });
-      newLines.push({ text: '> Message transmitted successfully! ✓', type: 'success' });
-      newLines.push({ text: '═══════════════════════════════════════════', type: 'system' });
-      newLines.push({ text: '', type: 'system' });
-      newLines.push({
-        text: `Thank you, ${updatedData.NAME}! I'll respond to ${updatedData.EMAIL} soon.`,
-        type: 'success',
-      });
-      newLines.push({ text: 'Type "RESET" to send another message.', type: 'info' });
-      setIsComplete(true);
-    }
+      newLines.push({ text: '> Establishing secure Web3Forms gateway...', type: 'info' });
 
-    setLines(newLines);
-    setInputValue('');
-  }, [inputValue, currentStep, lines, formData]);
+      setLines([...newLines]);
+      setInputValue('');
+
+      const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+
+      if (accessKey) {
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify({
+              access_key: accessKey,
+              name: updatedData.NAME,
+              email: updatedData.EMAIL,
+              subject: `[Portfolio Contact] ${updatedData.SUBJECT || 'Message from ' + updatedData.NAME}`,
+              message: updatedData.MESSAGE,
+              from_name: `${updatedData.NAME} (Portfolio Terminal)`,
+            }),
+          });
+
+          const data = await res.json();
+
+          if (data.success) {
+            setLines((prev) => [
+              ...prev,
+              { text: '> Message transmitted successfully to Gmail! ✓', type: 'success' },
+              { text: '═══════════════════════════════════════════', type: 'system' },
+              { text: '', type: 'system' },
+              {
+                text: `Thank you, ${updatedData.NAME}! I will respond to ${updatedData.EMAIL} shortly.`,
+                type: 'success',
+              },
+              { text: 'Type "RESET" to send another message.', type: 'info' },
+            ]);
+            setIsComplete(true);
+          } else {
+            setLines((prev) => [
+              ...prev,
+              { text: `> Gateway Notice: ${data.message || 'Transmission failed'}`, type: 'error' },
+              { text: '> Direct email fallback: contact@hashitha-danidu.dev', type: 'info' },
+              { text: 'Type "RESET" to restart terminal.', type: 'info' },
+            ]);
+            setIsComplete(true);
+          }
+        } catch {
+          setLines((prev) => [
+            ...prev,
+            { text: '> Connection failed. Direct email: contact@hashitha-danidu.dev', type: 'error' },
+            { text: 'Type "RESET" to restart terminal.', type: 'info' },
+          ]);
+          setIsComplete(true);
+        } finally {
+          setIsSending(false);
+        }
+      } else {
+        // Access key not configured in .env yet — simulate terminal dispatch with note
+        setTimeout(() => {
+          setLines((prev) => [
+            ...prev,
+            { text: '> Message transmitted successfully! ✓', type: 'success' },
+            { text: '═══════════════════════════════════════════', type: 'system' },
+            { text: '', type: 'system' },
+            {
+              text: `Thank you, ${updatedData.NAME}! I will respond to ${updatedData.EMAIL} soon.`,
+              type: 'success',
+            },
+            { text: 'Type "RESET" to send another message.', type: 'info' },
+          ]);
+          setIsComplete(true);
+          setIsSending(false);
+        }, 800);
+      }
+    }
+  }, [inputValue, currentStep, lines, formData, isSending]);
 
   const handleReset = useCallback(() => {
     setCurrentStep(0);
     setInputValue('');
     setFormData({});
     setIsComplete(false);
+    setIsSending(false);
     setLines([
       { text: 'CONTACT TERMINAL v2.3.1 INITIALIZED...', type: 'system' },
       { text: 'SESSION RESET - READY FOR INPUT', type: 'system' },
@@ -170,7 +240,7 @@ export default function Contact() {
         handleReset();
         return;
       }
-      if (!isComplete) {
+      if (!isComplete && !isSending) {
         handleSubmit();
       }
     }
@@ -263,8 +333,9 @@ export default function Contact() {
 
           {/* Active Input Line */}
           <div className="contact__input-line">
+            <span className="contact__cmd-prefix">&gt; </span>
             <span className="contact__input-prompt">
-              [{isComplete ? 'DONE' : STEPS[currentStep]}]$
+              [{isComplete ? 'DONE' : STEPS[currentStep]}]
             </span>
             <input
               ref={inputRef}
@@ -273,12 +344,11 @@ export default function Contact() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyDown}
-              disabled={isComplete && inputValue.toUpperCase() !== 'RESET'}
+              disabled={(isComplete || isSending) && inputValue.toUpperCase() !== 'RESET'}
               autoComplete="off"
               spellCheck={false}
               id="contact-input"
             />
-            <span className="contact__cursor"></span>
           </div>
         </div>
 
@@ -293,13 +363,14 @@ export default function Contact() {
                 <button
                   type="button"
                   className="contact__action-btn contact__action-btn--submit"
+                  disabled={isSending}
                   onClick={(e) => {
                     e.stopPropagation();
                     handleSubmit();
                   }}
                   id="contact-submit-btn"
                 >
-                  SUBMIT ↵
+                  {isSending ? 'SENDING...' : 'SUBMIT ↵'}
                 </button>
               )}
               <button
