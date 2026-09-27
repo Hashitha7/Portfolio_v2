@@ -33,6 +33,8 @@ const projects: Project[] = [
     image: projectTenzor,
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'UI/UX'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/TENZOR-LABS',
+    liveLink: 'https://tenzor-labs.vercel.app',
   },
   {
     title: 'TestNova AI QA Platform',
@@ -41,6 +43,7 @@ const projects: Project[] = [
     image: projectTestNova,
     tags: ['React', 'Node.js', 'AI / LLM', 'Automation', 'TypeScript'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/AI-QA-Test-Generation-Platform',
   },
   {
     title: 'Oracle Medical Channeling System',
@@ -49,6 +52,7 @@ const projects: Project[] = [
     image: projectOracleMedical,
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'REST API'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/Medical-Channeling-System',
   },
   {
     title: 'The Gallery Cafe Management',
@@ -57,6 +61,7 @@ const projects: Project[] = [
     image: projectGalleryCafe,
     tags: ['React', 'TypeScript', 'Node.js', 'POS System', 'MongoDB'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/Restaurant',
   },
   {
     title: 'Dog Nutrition Mobile App',
@@ -65,6 +70,7 @@ const projects: Project[] = [
     image: projectDogNutrition,
     tags: ['React Native', 'Figma', 'UI/UX', 'Mobile App', 'TypeScript'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/Dog-Nurition-App',
   },
   {
     title: 'Stock Management System',
@@ -73,6 +79,7 @@ const projects: Project[] = [
     image: projectStockMgmt,
     tags: ['React', 'Node.js', 'Express', 'MySQL', 'Analytics'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/Stock-Management-System',
   },
   {
     title: 'SuperMart POS & Inventory',
@@ -81,6 +88,7 @@ const projects: Project[] = [
     image: projectSuperMart,
     tags: ['React', 'Node.js', 'REST API', 'POS', 'Tailwind CSS'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/pos-system-fullstack-angular',
   },
   {
     title: 'Modernistic LMS & AI Analyst',
@@ -89,6 +97,8 @@ const projects: Project[] = [
     image: projectModernisticLMS,
     tags: ['React', 'Python', 'AI / ML', 'EdTech', 'Node.js'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/Final-project-LMS-SCU-',
+    liveLink: 'https://final-project-lms-scu.vercel.app',
   },
   {
     title: 'NodeX Blockchain Explorer',
@@ -97,6 +107,7 @@ const projects: Project[] = [
     image: projectNodeX,
     tags: ['React', 'TypeScript', 'WebSockets', 'Crypto / P2P', 'Node.js'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/go-multinode-blockchain',
   },
   {
     title: 'LuckyLux Web3 Platform',
@@ -105,6 +116,7 @@ const projects: Project[] = [
     image: projectLuckyLux,
     tags: ['React', 'Vite', 'Web3', 'Tailwind CSS', 'Figma'],
     status: 'Production',
+    liveLink: 'https://luckylux-t00191.onrender.com/',
   },
   {
     title: 'Lextar Tokenomics Platform',
@@ -113,6 +125,7 @@ const projects: Project[] = [
     image: projectLextar,
     tags: ['React', 'Tailwind CSS', 'Web3', 'JavaScript', 'DEX'],
     status: 'Production',
+    liveLink: 'https://t00192-lextar.onrender.com/',
   },
   {
     title: 'Donora Digital Platform',
@@ -121,6 +134,7 @@ const projects: Project[] = [
     image: projectDonora,
     tags: ['React', 'Vite', 'CSS3', 'Responsive Design', 'JavaScript'],
     status: 'Production',
+    liveLink: 'https://donora-t00206.onrender.com/',
   },
   {
     title: 'Tharusha Dilshan Photography',
@@ -129,6 +143,8 @@ const projects: Project[] = [
     image: projectPhotography,
     tags: ['React', 'Tailwind CSS', 'UI/UX', 'Photography', 'TypeScript'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/Photography_Site',
+    liveLink: 'https://tharushadilshan.vercel.app',
   },
   {
     title: 'Banana Nexus Interactive Game',
@@ -137,6 +153,7 @@ const projects: Project[] = [
     image: projectBananaNexus,
     tags: ['HTML5 Canvas', 'React', 'JavaScript', 'Game Dev', 'CSS3'],
     status: 'Production',
+    codeLink: 'https://github.com/Hashitha7/banana-nexus-game',
   },
 ];
 
