@@ -21,7 +21,8 @@ interface Project {
   image: string;
   tags: string[];
   status: 'Production' | 'Development' | 'Beta';
-  link?: string;
+  codeLink?: string;
+  liveLink?: string;
 }
 
 const projects: Project[] = [
@@ -198,11 +199,64 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           <span className="projects__badge-pulse"></span>
           {project.status}
         </span>
-        {/* Hover Overlay */}
+        {/* Action Buttons Overlay (Code & Live) */}
         <div className="projects__card-overlay">
-          <div className="projects__card-holo">
-            <span className="projects__card-holo-ring"></span>
-            <span className="projects__card-view">View Project →</span>
+          <div className="projects__card-actions">
+            <a
+              href={project.codeLink || '#'}
+              target={project.codeLink && project.codeLink !== '#' ? '_blank' : undefined}
+              rel={project.codeLink && project.codeLink !== '#' ? 'noopener noreferrer' : undefined}
+              className="projects__btn-action projects__btn-action--code"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (!project.codeLink || project.codeLink === '#') {
+                  e.preventDefault();
+                }
+              }}
+              aria-label={`View code for ${project.title}`}
+            >
+              <svg
+                className="projects__btn-action-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+              </svg>
+              <span>Code</span>
+            </a>
+
+            <a
+              href={project.liveLink || '#'}
+              target={project.liveLink && project.liveLink !== '#' ? '_blank' : undefined}
+              rel={project.liveLink && project.liveLink !== '#' ? 'noopener noreferrer' : undefined}
+              className="projects__btn-action projects__btn-action--live"
+              onClick={(e) => {
+                e.stopPropagation();
+                if (!project.liveLink || project.liveLink === '#') {
+                  e.preventDefault();
+                }
+              }}
+              aria-label={`View live demo for ${project.title}`}
+            >
+              <svg
+                className="projects__btn-action-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              <span>Live</span>
+            </a>
           </div>
         </div>
       </div>
